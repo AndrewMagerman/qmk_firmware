@@ -26,6 +26,7 @@ enum custom_keycodes {
 #define SHFINS  SFT_T(KC_INS)
 #define RUN  LCTL(SFT_T(KC_F10))
 #define DEBUG  LCTL(SFT_T(KC_F9))
+#define CALTTAB LCTL(LALT(KC_TAB))
 
 
 
@@ -48,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 [_LOWER] = LAYOUT( \
-  KC_ESC,   KC_HOME, KC_UP,   KC_END,   _______,     KC_LPRN, KC_RPRN, _______, SHFINS , _______,
+  KC_ESC,   KC_HOME, KC_UP,   KC_END,   _______,     KC_LPRN, KC_RPRN, CALTTAB, SHFINS , _______,
   KC_VOLU,  KC_LEFT, KC_DOWN, KC_RIGHT, KC_PGUP,     KC_LBRC, KC_RBRC, _______, _______, _______, \
   KC_VOLD,  KC_MPRV, KC_MPLY, KC_MNXT,  KC_PGDN,     KC_LCBR, KC_RCBR, _______, _______, _______, \
                     _______, _______, _______,      _______,  MO(_ADJUST), _______                \
