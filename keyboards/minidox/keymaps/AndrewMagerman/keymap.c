@@ -28,6 +28,8 @@ enum custom_keycodes {
 #define GUI_3  LGUI(KC_3)
 #define ALTTAB  LALT(KC_TAB)
 #define SHFINS  SFT_T(KC_INS)
+#define RUN  LCTL(SFT_T(KC_F10))
+#define DEBUG  LCTL(SFT_T(KC_F9))
 
 
 
@@ -60,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ADJUST] =  LAYOUT( \
   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,        KC_F6,   KC_F7,    KC_F8,   KC_F9,    KC_F10, \
   _______, DSK_LFT, _______, DSK_RT,  _______,      TSKMGR,  CALTDEL,  _______, KC_F11,   KC_F12, \
-  RESET,   _______, _______, _______, _______,      _______, _______,  _______, _______,  _______, \
+  RESET,   _______, _______, _______, _______,      RUN    , DEBUG  ,  _______, _______,  _______, \
                     _______, _______, _______,      _______, _______,  _______                    \
 )
 };
