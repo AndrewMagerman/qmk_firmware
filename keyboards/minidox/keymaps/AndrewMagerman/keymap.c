@@ -23,6 +23,13 @@ enum custom_keycodes {
 #define TSKMGR LCTL(LSFT(KC_ESC))
 #define DSK_LFT LGUI(LCTL(KC_LEFT))
 #define DSK_RT  LGUI(LCTL(KC_RIGHT))
+#define GUI_1  LGUI(KC_1)
+#define GUI_2  LGUI(KC_2)
+#define GUI_3  LGUI(KC_3)
+#define ALTTAB  LALT(KC_TAB)
+#define SHFINS  SFT_T(KC_INS)
+
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -35,17 +42,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_RAISE] = LAYOUT( \
-  KC_EXLM,    KC_AT,    KC_HASH, KC_DLR,  KC_PERC,      KC_PLUS, KC_7,     KC_8,   KC_9, KC_0,    \
+  KC_EXLM,    KC_AT,    KC_HASH, KC_DLR,  KC_PERC,      KC_PLUS,   KC_7,     KC_8,   KC_9, KC_0,    \
   KC_CIRC,    KC_AMPR,  KC_TILD, KC_PIPE, KC_BSLS,      KC_MINUS,  KC_4,     KC_5,   KC_6, KC_EQL, \
-  KC_DQT,     KC_QUOT,  KC_UNDS, KC_GRV,  _______,      KC_ASTR,  KC_1,     KC_2,   KC_3, _______, \
-                        _______, MO(_ADJUST), _______,      _______,  _______,  _______                    \
+  KC_DQT,     KC_QUOT,  KC_UNDS, KC_GRV,  _______,      KC_ASTR,   KC_1,     KC_2,   KC_3, _______, \
+                     _______, MO(_ADJUST), _______,     _______,   _______,  _______                    \
 ),
 
 
 [_LOWER] = LAYOUT( \
-  KC_ESC,   KC_HOME, KC_UP,   KC_END,   _______,     KC_LPRN, KC_RPRN, _______, _______, _______,
-  KC_VOLU,  KC_LEFT, KC_DOWN, KC_RIGHT, KC_PGUP,     KC_LBRC, KC_RBRC, _______, _______, _______, \
-  KC_VOLD,  KC_MPRV, KC_MPLY, KC_MNXT,  KC_PGDN,     KC_LCBR, KC_RCBR, _______, _______,  _______, \
+  KC_ESC,   KC_HOME, KC_UP,   KC_END,   _______,     KC_LPRN, KC_RPRN, ALTTAB , SHFINS , _______,
+  KC_VOLU,  KC_LEFT, KC_DOWN, KC_RIGHT, KC_PGUP,     KC_LBRC, KC_RBRC, GUI_1  , GUI_2  , GUI_3  , \
+  KC_VOLD,  KC_MPRV, KC_MPLY, KC_MNXT,  KC_PGDN,     KC_LCBR, KC_RCBR, _______, _______, _______, \
                     _______, _______, _______,      _______,  MO(_ADJUST), _______                    \
 ),
 
