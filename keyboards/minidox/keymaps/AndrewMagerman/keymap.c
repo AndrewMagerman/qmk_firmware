@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_RAISE] = LAYOUT( \
   CH_EXLM,  CH_QST,   CH_PARA, CH_DLR,  CH_HASH,                  CH_PLUS,  CH_7,  CH_8,   CH_9, CH_0,  \
-  CH_CIRC,  CH_QUOT, CH_DQOT, CH_GRV, CH_AMPR,              	    CH_ASTR,  CH_4,  CH_5,   CH_6, CH_EQL, \
+  CH_CIRC,  CH_QUOT,  CH_DQOT, CH_GRV,  CH_AMPR,              	  CH_ASTR,  CH_4,  CH_5,   CH_6, CH_EQL, \
   CH_SLSH,  CH_PIPE,  CH_BSLS, CH_AT,   CH_EURO,                  CH_PERC,  CH_1,  CH_2,   CH_3, KC_TAB,  \
                     _______, _______, _______,        _______,  _______,  _______ \
 ),
@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT( \
   KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,  CH_LBRC,  CH_RBRC,  KC_AUDIO_VOL_UP,  KC_HOME,      KC_PGDOWN,  KC_PGUP,  KC_END,   CH_TILD,  \
   KC_ESC,   CH_LESS,  CH_LPRN,  CH_RPRN,  CH_MORE,                          KC_LEFT,      KC_DOWN,    KC_UP,    KC_RIGHT, KC_ENT,  \
-  KC_BSPC,  KC_DEL,   CH_LCBR,  CH_RCBR,  KC_PSCR,                        	_______,  CH_AE,    CH_OE,    CH_UE,    CH_SS,  \
+  KC_BSPC,  KC_DEL,   CH_LCBR,  CH_RCBR,  KC_PSCR,                        	_______,  CH_AE,    CH_OE,    CH_UE,    _______,  \
                         _______, _______, _______,                    _______,  MO(_ADJUST), _______  \
 ),
 
