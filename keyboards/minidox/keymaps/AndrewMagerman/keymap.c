@@ -26,6 +26,7 @@ enum custom_keycodes {
 #define CUE LCTL(CH_UE)
 #define RUN LSFT(LCTL(KC_F10))
 #define DEBUG LSFT(LCTL(KC_F9))
+#define CALTTAB LCTL(LALT(KC_TAB))
 #define MUTE KC_AUDIO_MUTE
 #define VOL_DOWN KC_AUDIO_VOL_DOWN
 #define VOL_UP KC_AUDIO_VOL_UP
@@ -57,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ADJUST] = LAYOUT( \
   MUTE,    VOL_DOWN,  _______,  _______,  VOL_UP,                 _______,   KC_F7,    KC_F8,    KC_F9,   KC_F10,  \
   CALTESC, CUE,       RUN,      DEBUG,    _______,                _______,   KC_F4,    KC_F5,    KC_F6,   KC_F11,  \
-  RESET,   CALTDEL,   _______,  CALT,     _______,                _______,   KC_F1,    KC_F2,    KC_F3,   KC_F12,  \
+  RESET,   CALTDEL,   CALTTAB,  CALT,     _______,                _______,   KC_F1,    KC_F2,    KC_F3,   KC_F12,  \
                       _______,  _______,  _______,                _______,  _______,  _______  \
 )};
 
