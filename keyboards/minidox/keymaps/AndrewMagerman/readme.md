@@ -4,7 +4,7 @@
 This is a swiss german layout with support for umlauts and the euro sign.
 You need to set your system layout to swiss german. This is a fork of tw1t611.
 
-[keyboard-layout-editor.com](http://www.keyboard-layout-editor.com/#/gists/d58a82d8017d0c0cca044ef385def165)
+[keyboard-layout-editor.com](http://www.keyboard-layout-editor.com/#/gists/db8df5d170b84dc21e5c2f61ecf32435)
 
 ## Layers
 | Layer | Legend |
