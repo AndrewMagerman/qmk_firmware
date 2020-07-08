@@ -42,8 +42,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_RAISE] = LAYOUT( \
   CH_EXLM,  CH_QST,   CH_PARA, CH_DLR,  CH_HASH,                  CH_PLUS,  CH_7,    CH_8,   CH_9,    CH_0,  \
-  CH_CIRC,  CH_QUOT,  CH_DQOT, CH_GRV,  CH_AMPR,              	  CH_ASTR,  CH_4,    CH_5,   CH_6,    CH_EQL, \
-  CH_SLSH,  CH_PIPE,  CH_BSLS, CH_AT,   CH_EURO,                  CH_PERC,  CH_1,    CH_2,   CH_3,    KC_TAB,  \
+  CH_CIRC,  CH_QUOT,  CH_DQOT, CH_GRV,  CH_AMPR,              	  CH_ASTR,  CH_4,    CH_5,   CH_6,    KC_TAB, \
+  CH_SLSH,  CH_PIPE,  CH_BSLS, CH_AT,   CH_EURO,                  CH_PERC,  CH_1,    CH_2,   CH_3,    CH_EQL,  \
                       _______, _______, _______,                  _______,  _______,  _______ \
 ),
 
