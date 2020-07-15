@@ -17,6 +17,7 @@ enum custom_keycodes {
   LOWER,
   RAISE,
   ADJUST,
+  QMKBEST,
 };
 
 // macro keys
@@ -30,6 +31,26 @@ enum custom_keycodes {
 #define MUTE KC_AUDIO_MUTE
 #define VOL_DOWN KC_AUDIO_VOL_DOWN
 #define VOL_UP KC_AUDIO_VOL_UP
+
+
+
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case QMKBEST:
+        if (record->event.pressed) {
+            // when keycode QMKBEST is pressed
+            SEND_STRING("QMK is the best thing ever!");
+        } else {
+            // when keycode QMKBEST is released
+        }
+        break;
+    }
+    return true;
+};
+
+
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -50,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT( \
   _______,  CH_RCBR,  CH_RBRC,  CH_RPRN,  CH_LESS,                KC_HOME,      KC_PGDOWN,  KC_PGUP,  KC_END,   CH_TILD,  \
   KC_ESC,   CH_LCBR,  CH_LBRC,  CH_LPRN,  CH_MORE,                KC_LEFT,      KC_DOWN,    KC_UP,    KC_RIGHT, KC_ENT,  \
-  KC_BSPC,  KC_DEL,   _______,  _______,  KC_PSCR,                _______,      CH_AE,      CH_OE,    CH_UE,    _______,  \
+  KC_BSPC,  KC_DEL,   _______,  _______,  KC_PSCR,                QMKBEST,      CH_AE,      CH_OE,    CH_UE,    _______,  \
                         _______, _______, _______,                _______,      MO(_ADJUST),_______  \
 ),
 
@@ -65,3 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 void matrix_init_user(void) {
   set_single_persistent_default_layer(_QWERTZ);
 };
+
+
+
+
