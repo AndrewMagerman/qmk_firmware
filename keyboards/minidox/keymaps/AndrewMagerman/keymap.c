@@ -1,6 +1,9 @@
 #include QMK_KEYBOARD_H
 #include "keymap_german_ch.h"
 
+bool is_alt_tab_active = false;
+uint16_t alt_tab_timer = 0;
+
 extern keymap_config_t keymap_config;
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
@@ -17,7 +20,7 @@ enum custom_keycodes {
   LOWER,
   RAISE,
   ADJUST,
-  QMKBEST,
+  ALT_TAB,
 };
 
 // macro keys
@@ -36,18 +39,22 @@ enum custom_keycodes {
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-    case QMKBEST:
-        if (record->event.pressed) {
-            // when keycode QMKBEST is pressed
-            SEND_STRING("QMK is the best thing ever!");
-        } else {
-            // when keycode QMKBEST is released
+  switch (keycode) {
+    case ALT_TAB:
+      if (record->event.pressed) {
+        if (!is_alt_tab_active) {
+          is_alt_tab_active = true;
+          register_code(KC_LALT);
         }
-        break;
-    }
-    return true;
-};
+        alt_tab_timer = timer_read();
+        register_code(KC_TAB);
+      } else {
+        unregister_code(KC_TAB);
+      }
+      break;
+  }
+  return true;
+}
 
 
 
@@ -55,24 +62,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTZ] = LAYOUT( \
-  CH_Q,    CH_W,    CH_E,    CH_R,    CH_T,                       CH_Z,    CH_U,    CH_I,    CH_O,    CH_P, \
-  CH_A,    CH_S,    CH_D,    CH_F,    CH_G,                       CH_H,    CH_J,    CH_K,    CH_L,    KC_SPC,  \
+  CH_Q,    CH_W,    CH_E,    CH_R,    CH_T,                       CH_Z,    CH_U,    CH_I,    CH_O,    CH_P,     \
+  CH_A,    CH_S,    CH_D,    CH_F,    CH_G,                       CH_H,    CH_J,    CH_K,    CH_L,    KC_SPC,   \
   CH_Y,    CH_X,    CH_C,    CH_V,    CH_B,                       CH_N,    CH_M,    CH_COMM, CH_DOT,  CH_MINS,  \
           KC_LCTRL, MO(_LOWER), MO(_RAISE),		                  KC_LGUI, KC_LSFT, KC_LALT \
 ),
 
 [_RAISE] = LAYOUT( \
-  CH_EXLM,  CH_QST,   CH_PARA, CH_DLR,  CH_HASH,                  CH_PLUS,  CH_7,    CH_8,   CH_9,    CH_0,  \
-  CH_CIRC,  CH_QUOT,  CH_DQOT, CH_GRV,  CH_AMPR,              	  CH_ASTR,  CH_4,    CH_5,   CH_6,    KC_TAB, \
+  CH_EXLM,  CH_QST,   CH_PARA, CH_DLR,  CH_HASH,                  CH_PLUS,  CH_7,    CH_8,   CH_9,    CH_0,    \
+  CH_CIRC,  CH_QUOT,  CH_DQOT, CH_GRV,  CH_AMPR,              	  CH_ASTR,  CH_4,    CH_5,   CH_6,    KC_TAB,  \
   CH_SLSH,  CH_PIPE,  CH_BSLS, CH_AT,   CH_EURO,                  CH_PERC,  CH_1,    CH_2,   CH_3,    CH_EQL,  \
                       _______, _______, _______,                  _______,  _______,  _______ \
 ),
 
 [_LOWER] = LAYOUT( \
-  _______,  CH_RCBR,  CH_RBRC,  CH_RPRN,  CH_LESS,                KC_HOME,      KC_PGDOWN,  KC_PGUP,  KC_END,   CH_TILD,  \
+  _______,  CH_RCBR,  CH_RBRC,  CH_RPRN,  CH_LESS,                KC_HOME,      KC_PGDOWN,  KC_PGUP,  KC_END,   CH_TILD, \
   KC_ESC,   CH_LCBR,  CH_LBRC,  CH_LPRN,  CH_MORE,                KC_LEFT,      KC_DOWN,    KC_UP,    KC_RIGHT, KC_ENT,  \
-  KC_BSPC,  KC_DEL,   _______,  _______,  KC_PSCR,                QMKBEST,      CH_AE,      CH_OE,    CH_UE,    _______,  \
-                        _______, _______, _______,                _______,      MO(_ADJUST),_______  \
+  KC_BSPC,  KC_DEL,   _______,  _______,  KC_PSCR,                ALT_TAB,      CH_AE,      CH_OE,    CH_UE,    _______, \
+                        _______, _______, _______,                _______,      MO(_ADJUST),_______                      \
 ),
 
 
@@ -88,5 +95,12 @@ void matrix_init_user(void) {
 };
 
 
-
+void matrix_scan_user(void) {
+  if (is_alt_tab_active) {
+    if (timer_elapsed(alt_tab_timer) > 1000) {
+      unregister_code(KC_LALT);
+      is_alt_tab_active = false;
+    }
+  }
+}
 
