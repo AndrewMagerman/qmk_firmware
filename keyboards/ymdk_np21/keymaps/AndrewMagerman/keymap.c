@@ -7,6 +7,7 @@ enum custom_keycodes {
   NP = SAFE_RANGE,
   BL,
   PW,
+  USER,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -18,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_P7,   KC_P8,   KC_P9,   KC_PPLS,
     KC_P4,   KC_P5,   KC_P6,   KC_PPLS,
     KC_P1,   KC_P2,   KC_P3,   KC_PENT,
-    PW,      KC_DOT,  KC_PDOT, KC_PENT
+    PW,      USER ,  KC_PDOT, KC_PENT
   ),
 
   [_BL] = LAYOUT_ortho_6x4(
@@ -51,6 +52,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // when keycode PW is released
         }
         break;
+    case USER:
+        if (record->event.pressed) {
+            // when keycode QMKBEST is pressed
+            SEND_STRING("magermana");
+        } else {
+            // when keycode PW is released
+        }
+        break;
+
+
     }
     return true;
 };
