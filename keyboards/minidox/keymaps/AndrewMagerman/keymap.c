@@ -40,10 +40,6 @@ enum custom_keycodes {
 #define RENAME LSFT(KC_F6)
 
 
-
-
-
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case ALT_TAB:
@@ -59,10 +55,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
   }
+      case RE20C:
+        if (record->event.pressed) {
+            // when keycode is pressed
+            SEND_STRING("RE20C");
+        } else {
+            // when keycode PW is released
+        }
+        break;
   return true;
 }
-
-
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -90,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 [_ADJUST] = LAYOUT( \
-  MUTE,    VOL_DOWN,  _______,  _______,  VOL_UP,                 _______,   KC_F7,    KC_F8,    KC_F9,   KC_F10,  \
+  MUTE,    VOL_DOWN,  _______,  _______,  VOL_UP,                 RE20C  ,   KC_F7,    KC_F8,    KC_F9,   KC_F10,  \
   CALTESC, CUE,       DEBUG,    RUN,      _______,                _______,   KC_F4,    KC_F5,    KC_F6,   KC_F11,  \
   RESET,   CALTDEL,   CALTTAB,  CALT,     _______,                _______,   KC_F1,    KC_F2,    KC_F3,   KC_F12,  \
                       _______,  _______,  _______,                _______,  _______,  _______  \
