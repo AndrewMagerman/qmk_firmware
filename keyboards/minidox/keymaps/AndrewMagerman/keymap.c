@@ -35,9 +35,9 @@ enum custom_keycodes {
 #define VOL_DOWN KC_AUDIO_VOL_DOWN
 #define VOL_UP KC_AUDIO_VOL_UP
 #define SHFTINS LSFT(KC_INSERT)
-#define REFORMAT LSFT(LALT(CH_L))
-#define IMPORTS LSFT(LALT(CH_O))
-#define RENAME LSFT(LALT(KC_F6))
+#define REFORMAT LCTL(LALT(CH_L))
+#define IMPORTS LCTL(LALT(CH_O))
+#define RENAME LSFT(KC_F6)
 
 
 
