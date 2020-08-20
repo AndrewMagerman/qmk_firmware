@@ -77,16 +77,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_LOWER] = LAYOUT( \
-  _______,  CH_RCBR,  CH_RBRC,  CH_RPRN,  CH_LESS,                KC_HOME,      KC_PGDOWN,  KC_PGUP,  KC_END,   CH_TILD, \
+  KC_PSCR,  CH_RCBR,  CH_RBRC,  CH_RPRN,  CH_LESS,                KC_HOME,      KC_PGDOWN,  KC_PGUP,  KC_END,   CH_TILD, \
   KC_ESC,   CH_LCBR,  CH_LBRC,  CH_LPRN,  CH_MORE,                KC_LEFT,      KC_DOWN,    KC_UP,    KC_RIGHT, KC_ENT,  \
-  KC_BSPC,  KC_DEL,   SHFTINS,  _______,  KC_PSCR,                ALT_TAB,      CH_AE,      CH_OE,    CH_UE,    _______, \
+  KC_BSPC,  KC_DEL,   SHFTINS,  _______,  _______,                ALT_TAB,      CH_AE,      CH_OE,    CH_UE,    _______, \
                         _______, _______, _______,                _______,      MO(_ADJUST),_______                      \
 ),
 
 
 [_ADJUST] = LAYOUT( \
   MUTE,    VOL_DOWN,  _______,  _______,  VOL_UP,                 _______,   KC_F7,    KC_F8,    KC_F9,   KC_F10,  \
-  CALTESC, CUE,       RUN,      DEBUG,    _______,                _______,   KC_F4,    KC_F5,    KC_F6,   KC_F11,  \
+  CALTESC, CUE,       DEBUG,    RUN,      _______,                _______,   KC_F4,    KC_F5,    KC_F6,   KC_F11,  \
   RESET,   CALTDEL,   CALTTAB,  CALT,     _______,                _______,   KC_F1,    KC_F2,    KC_F3,   KC_F12,  \
                       _______,  _______,  _______,                _______,  _______,  _______  \
 )};
