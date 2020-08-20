@@ -37,6 +37,7 @@ enum custom_keycodes {
 #define SHFTINS LSFT(KC_INSERT)
 #define REFORMAT LSFT(LALT(CH_L))
 #define IMPORTS LSFT(LALT(CH_O))
+#define RENAME LSFT(LALT(KC_F6))
 
 
 
@@ -83,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT( \
   KC_PSCR,  CH_RCBR,  CH_RBRC,  CH_RPRN,  CH_LESS,                KC_HOME,      KC_PGDOWN,  KC_PGUP,  KC_END,   CH_TILD, \
   KC_ESC,   CH_LCBR,  CH_LBRC,  CH_LPRN,  CH_MORE,                KC_LEFT,      KC_DOWN,    KC_UP,    KC_RIGHT, KC_ENT,  \
-  KC_BSPC,  KC_DEL,   SHFTINS,  REFORMAT,  IMPORTS,                ALT_TAB,      CH_AE,      CH_OE,    CH_UE,    _______, \
+  KC_BSPC,  KC_DEL,   SHFTINS,  REFORMAT,  IMPORTS,                ALT_TAB,      CH_AE,      CH_OE,    CH_UE,    RENAME, \
                         _______, _______, _______,                _______,      MO(_ADJUST),_______                      \
 ),
 
