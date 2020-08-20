@@ -34,6 +34,7 @@ enum custom_keycodes {
 #define MUTE KC_AUDIO_MUTE
 #define VOL_DOWN KC_AUDIO_VOL_DOWN
 #define VOL_UP KC_AUDIO_VOL_UP
+#define SHFTINS LSFT(KC_INSERT)
 
 
 
@@ -78,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT( \
   _______,  CH_RCBR,  CH_RBRC,  CH_RPRN,  CH_LESS,                KC_HOME,      KC_PGDOWN,  KC_PGUP,  KC_END,   CH_TILD, \
   KC_ESC,   CH_LCBR,  CH_LBRC,  CH_LPRN,  CH_MORE,                KC_LEFT,      KC_DOWN,    KC_UP,    KC_RIGHT, KC_ENT,  \
-  KC_BSPC,  KC_DEL,   _______,  _______,  KC_PSCR,                ALT_TAB,      CH_AE,      CH_OE,    CH_UE,    _______, \
+  KC_BSPC,  KC_DEL,   SHFTINS,  _______,  KC_PSCR,                ALT_TAB,      CH_AE,      CH_OE,    CH_UE,    _______, \
                         _______, _______, _______,                _______,      MO(_ADJUST),_______                      \
 ),
 
