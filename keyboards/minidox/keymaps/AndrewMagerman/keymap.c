@@ -21,6 +21,7 @@ enum custom_keycodes {
   RAISE,
   ADJUST,
   ALT_TAB,
+  RE20C,
 };
 
 // macro keys
@@ -54,17 +55,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         unregister_code(KC_TAB);
       }
       break;
-  }
-      case RE20C:
-        if (record->event.pressed) {
-            // when keycode is pressed
-            SEND_STRING("RE20C");
-        } else {
-            // when keycode PW is released
-        }
-        break;
+    case RE20C:
+      if (record->event.pressed) {
+        // when keycode is pressed
+        SEND_STRING("RE20C");
+      } else {
+        // when keycode PW is released
+      }
+      break;
+      }
   return true;
-}
+};
+
+
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -86,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT( \
   KC_PSCR,  CH_RCBR,  CH_RBRC,  CH_RPRN,  CH_LESS,                KC_HOME,      KC_PGDOWN,  KC_PGUP,  KC_END,   CH_TILD, \
   KC_ESC,   CH_LCBR,  CH_LBRC,  CH_LPRN,  CH_MORE,                KC_LEFT,      KC_DOWN,    KC_UP,    KC_RIGHT, KC_ENT,  \
-  KC_BSPC,  KC_DEL,   SHFTINS,  REFORMAT,  IMPORTS,                ALT_TAB,      CH_AE,      CH_OE,    CH_UE,    RENAME, \
+  KC_BSPC,  KC_DEL,   SHFTINS,  REFORMAT,  IMPORTS,               ALT_TAB,      CH_AE,      CH_OE,    CH_UE,    RENAME, \
                         _______, _______, _______,                _______,      MO(_ADJUST),_______                      \
 ),
 
